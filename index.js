@@ -5,6 +5,7 @@ const http = require("http")
 const server = http.createServer(app)
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+//const { job } = require('./cron.js')
 
 
  app.use(cors())
@@ -40,7 +41,9 @@ const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/
 
 
 const PORT = process.env.PORT || 3000
-
+app.get('/register-click', (req,res) =>{
+  res.statusCode(200).send("Hello World!!");
+})
 app.post('/register-click', (req,res)=>{
   //console.log(req.body.time)
     registerClick(req.body.time)
@@ -49,6 +52,7 @@ app.post('/register-click', (req,res)=>{
     })
 }
 )
+//job.start()
 
 app.listen(
     PORT,
