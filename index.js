@@ -5,7 +5,7 @@ const http = require("http")
 const server = http.createServer(app)
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
-//const { job } = require('./cron.js')
+const { job } = require('./cron.js')
 
 
  app.use(cors())
@@ -52,7 +52,7 @@ app.post('/register-click', (req,res)=>{
     })
 }
 )
-//job.start()
+job.start()
 
 app.listen(
     PORT,

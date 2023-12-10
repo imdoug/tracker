@@ -5,10 +5,9 @@ const bUrl = 'https://digitallocker-server.onrender.com';
 
 
 
-const job = new cron.schedule('*/1 * * * *', function (){
+const job = new cron.schedule('*/14 * * * *', function (){
   console.log('restarting server')
   https.get(bUrl, (res)=>{
-    console.log(res)
     if(res.statusCode == 200){
       console.log('server restarted')
     }else{
