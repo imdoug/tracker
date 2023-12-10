@@ -41,7 +41,7 @@ const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/
 
 
 const PORT = process.env.PORT || 3000
-app.get('/register-click', (req,res) =>{
+app.get('/', (req,res) =>{
   res.statusCode(200).send("Hello World!!");
 })
 app.post('/register-click', (req,res)=>{
